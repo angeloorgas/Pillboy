@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+			 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:proj441"
+			 x:Class="proj441.MasterPage"
+			 Padding="0,0,0,0"
+			 Title="Menu">
+    
+    <StackLayout>
+        <StackLayout 
+            Padding="10"
+            BackgroundColor="DarkRed"
+            HeightRequest="150" >
+            <Label 
+                Margin="0,10,0,0"
+                x:Name="UserLabel"
+                Text="User Name"
+                TextColor="White"
+                FontSize="Medium"
+                HorizontalOptions="StartAndExpand" 
+                VerticalOptions="EndAndExpand" />
+            <Label 
+                Margin="0,0,0,10"
+                x:Name="emailLabel"
+                Text="email@gmail.com"
+                TextColor="LightGray"
+                FontSize="Small"
+                HorizontalOptions="StartAndExpand" 
+                VerticalOptions="End" />
+        </StackLayout>
+
+        <ListView x:Name="listView" 
+                  x:FieldModifier="public" 
+                  RowHeight="50" 
+                  SeparatorVisibility="None"
+                  HeightRequest="100" >
+
+            <ListView.ItemsSource>
+                <x:Array 
+                    Type="{x:Type local:MasterPageItem}">
+                    <local:MasterPageItem 
+                        Title="Home" 
+                        IconSource="homeicon.png" 
+                        TargetType="{x:Type local:HomePage}" />
+                    <local:MasterPageItem 
+                        Title="See Reminders" 
+                        IconSource="remindersicon.png" 
+                        TargetType="{x:Type local:ReminderPage}" />
+                    <local:MasterPageItem 
+                        Title="See Dosage History" 
+                        IconSource="calendaricon.png" 
+                        TargetType="{x:Type local:HistoryPage}" />
+                    <local:MasterPageItem 
+                        Title="Log Out" 
+                        IconSource="usericon.png" 
+                        TargetType="{x:Type local:HomePage}"/>
+                </x:Array>
+            </ListView.ItemsSource>
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid 
+                            Padding="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Image 
+                                Margin="20, 10, 10, 10" 
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center" 
+                                Grid.Column="0" 
+                                Aspect="AspectFit" 
+                                Source="{Binding IconSource}" />
+                            <Label 
+                                Margin="10" 
+                                HorizontalOptions="Start" 
+                                VerticalOptions="Center"  
+                                Grid.Column="1" 
+                                FontSize="14" 
+                                TextColor="#212121" 
+                                Text="{Binding Title}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </StackLayout>
+</ContentPage>

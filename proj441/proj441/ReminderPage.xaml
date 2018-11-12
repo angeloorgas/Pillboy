@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proj441.ReminderPage"
+             Title="Reminders">
+    <ContentPage.Content>
+        <Grid
+            RowSpacing="0"
+            ColumnSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image 
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.RowSpan="3"
+            Source="doodlepills3.png"
+            Aspect="AspectFill"/>
+
+            <Button
+                Grid.Row="0"
+                Margin="10, 20, 10, 10"
+                Style="{StaticResource MainButtonStyle}" 
+                x:Name="SetReminderButton2"
+                Text="SET A REMINDER"
+                Clicked="SetReminderButton2_Clicked"
+                />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

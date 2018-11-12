@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="proj441.LogPage"
+             Title="Log Dosage">
+    <ContentPage.Content>
+        <Grid
+            RowSpacing="0"
+            ColumnSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image 
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.RowSpan="3"
+            Source="doodlepills3.png"
+            Aspect="AspectFill"/>
+
+            <Button
+                Grid.Row="0"
+                Margin="10, 20, 10, 10"
+                Style="{StaticResource MainButtonStyle}" 
+                x:Name="AddPrescriptionButton"
+                Text="ADD NEW PRESCRIPTION"
+                Clicked="AddPrescriptionButton_Clicked"
+                />
+
+            <Frame
+                Grid.Row="1"
+                Grid.RowSpan="2"
+                Margin="15"
+                Padding="5"
+                CornerRadius="10"
+                BorderColor="{StaticResource MainColor}"
+                BackgroundColor="#F5F5F5">
+
+                <ListView
+                    Margin="0"
+                    BackgroundColor="#F5F5F5"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    Grid.Row="1" 
+                    x:Name = "MyLogList"
+                    HasUnevenRows="True"
+                    ItemSelected="MyLogList_ItemSelected">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem
+                                   Text="Info"
+                                   Clicked="Handle_ContextMenuInfoButton"
+                                   CommandParameter="{Binding .}"/>
+                                    <MenuItem
+                                   Text="Delete"
+                                   CommandParameter="{Binding .}"
+                                    Clicked="Handle_ContextMenuDeleteButton"
+                                   IsDestructive="True"/>
+                                </ViewCell.ContextActions>
+                                <ViewCell.View>
+                                    <StackLayout
+                                        Orientation="Horizontal">
+                                        <Image
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="Center"
+                                            HeightRequest="50"
+                                            Source="redpillwhitefill.png"
+                                            Aspect="AspectFill"/>
+                                        <Label
+                                            HorizontalOptions="Start"
+                                            VerticalOptions="CenterAndExpand"
+                                            FontSize="Large"
+                                            Text="{Binding Name}" />
+                                        <Label
+                                            Margin="0,0,15,0"
+                                            HorizontalOptions="EndAndExpand"
+                                            VerticalOptions="Center"
+                                            FontSize="32"
+                                            FontAttributes="Bold"
+                                            TextColor="{StaticResource MainColor}"
+                                            Text="+   " />
+                                    </StackLayout>
+                                </ViewCell.View>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

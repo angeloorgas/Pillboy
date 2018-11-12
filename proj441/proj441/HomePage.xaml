@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:proj441"
+             x:Class="proj441.HomePage" 
+             Title="Home">
+
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0, 0, 0, 0" />
+            <On Platform="Android, UWP" Value="0" />
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <Grid RowSpacing="0"  ColumnSpacing="0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image 
+            Grid.Row="0"
+            Grid.Column="0"
+            Grid.RowSpan="3"
+            Source="doodlepills3.png"
+            Aspect="AspectFill"/>
+
+        <StackLayout 
+            Margin="10, 20, 10, 10"
+            Grid.Row="0"
+            Grid.Column="0"
+            VerticalOptions="Start"
+            HorizontalOptions="CenterAndExpand"
+            BackgroundColor="Transparent"
+            Padding="5">
+
+            <StackLayout 
+                Margin="0"
+                Padding="5"
+                VerticalOptions="StartAndExpand"
+                HorizontalOptions="CenterAndExpand"
+                BackgroundColor="Transparent">
+                <Image
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"
+                    Source="pillboylogodeepredoutline.png"
+                    Scale="1"
+                    Aspect="AspectFit"
+                    BackgroundColor="Transparent"
+                    />
+            </StackLayout>
+        </StackLayout>
+
+        <StackLayout 
+            Padding="10, 10, 10, 20"
+            Spacing="10"
+            VerticalOptions="EndAndExpand" 
+            Grid.Row="2" 
+            Grid.Column="0"  
+            BackgroundColor="Transparent" >
+            
+            
+            <Button
+                Style="{StaticResource MainButtonStyle}" 
+                x:Name="LogDosageButton"
+                Text="LOG A DOSAGE"
+                Clicked="LogDosageButton_Clicked"
+                />
+            
+            <Button
+                Style="{StaticResource MainButtonStyle}" 
+                x:Name="seeHistoryButton"
+                Text="DOSAGE HISTORY"
+                Clicked="SeeHistoryButton_Clicked"
+                />
+
+            <Button
+                Style="{StaticResource MainButtonStyle}" 
+                x:Name="SetReminderButton"
+                Text="SET A REMINDER"
+                Clicked="SetReminderButton_Clicked"
+                />
+
+            <Button
+                Style="{StaticResource MainButtonStyle}"
+                x:Name="seeRemindersButton"
+                Text="Reminders"
+                Clicked="SeeRemindersButton_Clicked"
+                />
+ 
+        </StackLayout>
+    </Grid>
+</ContentPage>
